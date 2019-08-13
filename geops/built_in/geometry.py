@@ -34,7 +34,7 @@ class Geometry(object):
         self._GMSH_MAJOR = gmsh_major_version
         self._TAKEN_PHYSICALGROUP_IDS = []
         self._GMSH_CODE = [
-            "// This code was created by geoscr v{}.".format(__version__)
+            "// This code was created by geops v{}.".format(__version__)
         ]
         return
 
@@ -315,7 +315,7 @@ class Geometry(object):
                 arcs = [self.add_compound_line(arcs)]
             elif self._gmsh_major() == 4:
                 self.add_raw_code(
-                    "Compound Curve{{{}}};".format(",".join([arc.id for arc in arcs]))
+                    "Compound Curve{{{}}};".format(", ".join([arc.id for arc in arcs]))
                 )
 
         line_loop = self.add_line_loop(arcs)
@@ -400,16 +400,16 @@ class Geometry(object):
             if rotation_axis is not None:
                 extrusion_string += "{}[] = Extrude{{{{{}}}, {{{}}}, {{{}}}, {}}}{{{};".format(
                     name,
-                    ",".join(repr(x) for x in translation_axis),
-                    ",".join(repr(x) for x in rotation_axis),
-                    ",".join(repr(x) for x in point_on_axis),
+                    ", ".join(repr(x) for x in translation_axis),
+                    ", ".join(repr(x) for x in rotation_axis),
+                    ", ".join(repr(x) for x in point_on_axis),
                     angle,
                     entity.id,
                 )
             else:
                 # Only translation
                 extrusion_string += "{}[] = Extrude {{{}}} {{{};".format(
-                    name, ",".join(repr(x) for x in translation_axis), entity.id
+                    name, ", ".join(repr(x) for x in translation_axis), entity.id
                 )
         else:
             assert (
@@ -418,8 +418,8 @@ class Geometry(object):
             # Only rotation
             extrusion_string += "{}[] = Extrude{{{{{}}}, {{{}}}, {}}}{{{};".format(
                 name,
-                ",".join(repr(x) for x in rotation_axis),
-                ",".join(repr(x) for x in point_on_axis),
+                ", ".join(repr(x) for x in rotation_axis),
+                ", ".join(repr(x) for x in point_on_axis),
                 angle,
                 entity.id,
             )
@@ -503,17 +503,17 @@ class Geometry(object):
         if edges_list:
             self._GMSH_CODE.append(
                 "Field[{}].EdgesList = {{{}}};".format(
-                    name, ",".join([e.id for e in edges_list])
+                    name, ", ".join([e.id for e in edges_list])
                 )
             )
         if faces_list:
             self._GMSH_CODE.append(
-                "Field[{}].FacesList = {{{}}};".format(name, ",".join(faces_list))
+                "Field[{}].FacesList = {{{}}};".format(name, ", ".join(faces_list))
             )
         if nodes_list:
             self._GMSH_CODE.append(
                 "Field[{}].NodesList = {{{}}};".format(
-                    name, ",".join([n.id for n in nodes_list])
+                    name, ", ".join([n.id for n in nodes_list])
                 )
             )
         if hfar:
@@ -657,10 +657,10 @@ class Geometry(object):
             assert self._gmsh_major() == 4
             # <https://gitlab.onelab.info/gmsh/gmsh/issues/507>
             self.add_raw_code(
-                "Compound Surface{{{}}};".format(",".join([surf.id for surf in s[:4]]))
+                "Compound Surface{{{}}};".format(", ".join([surf.id for surf in s[:4]]))
             )
             self.add_raw_code(
-                "Compound Surface{{{}}};".format(",".join([surf.id for surf in s[4:]]))
+                "Compound Surface{{{}}};".format(", ".join([surf.id for surf in s[4:]]))
             )
 
         # Create the surface loop.
@@ -879,7 +879,7 @@ class Geometry(object):
         else:
             assert self._gmsh_major() == 4
             self.add_raw_code(
-                "Compound Volume{{{}}};".format(",".join(v.id for v in all_volumes))
+                "Compound Volume{{{}}};".format(", ".join(v.id for v in all_volumes))
             )
 
         self.add_comment(76 * "-" + "\n")

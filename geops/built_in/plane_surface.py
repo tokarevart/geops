@@ -46,7 +46,7 @@ class PlaneSurface(SurfaceBase):
             [
                 "{} = news;".format(self.id),
                 "Plane Surface({}) = {{{}}};".format(
-                    self.id, ",".join([ll.id for ll in line_loops])
+                    self.id, ", ".join([ll.id for ll in line_loops])
                 ),
             ]
         )

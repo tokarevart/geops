@@ -23,7 +23,7 @@ class CompoundLine(LineBase):
             [
                 "{} = newl;".format(self.id),
                 "Compound Line({}) = {{{}}};".format(
-                    self.id, ",".join([l.id for l in self.lines])
+                    self.id, ", ".join([l.id for l in self.lines])
                 ),
             ]
         )

@@ -33,7 +33,7 @@ class SurfaceLoop(object):
             [
                 "{} = news;".format(self.id),
                 "Surface Loop({}) = {{{}}};".format(
-                    self.id, ",".join([s.id for s in surfaces])
+                    self.id, ", ".join([s.id for s in surfaces])
                 ),
             ]
         )

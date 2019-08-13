@@ -26,7 +26,7 @@ class CompoundSurface(SurfaceBase):
             [
                 "{} = news;".format(self.id),
                 "Compound Surface({}) = {{{}}};".format(
-                    self.id, ",".join([s.id for s in surfaces])
+                    self.id, ", ".join([s.id for s in surfaces])
                 ),
             ]
         )

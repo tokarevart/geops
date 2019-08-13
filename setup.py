@@ -1,12 +1,11 @@
-from os.path import join, dirname
 from setuptools import setup, find_packages
-from geoscr import __version__
+from geops import __version__
 
 with open("README.rst", "r") as f:
     readme = f.read()
 
 setup(
-    name="geoscr",
+    name="geops",
     version=__version__,
     author="Tokarev Artem",
     author_email="tokarev28.art@gmail.com",
