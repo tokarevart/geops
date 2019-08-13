@@ -1,5 +1,7 @@
 .idea/
 geoscr/__pycache__
+geoscr/built_in/__pycache__
+geoscr/opencascade/__pycache__
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
