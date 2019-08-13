@@ -2,7 +2,7 @@
 
 The goal of geoscr is to combine the power of Gmsh with the versatility of Python and to provide useful abstractions from the Gmsh scripting language so you can create complex geometries more easily.
 
-geoscr is a lightweight version of `pygmsh`_ library. It can only allow you to script Gmsh geometry (`*`.geo).
+geoscr is a lightweight version of `pygmsh`_ library. It can only allow you to script Gmsh geometry (*.geo).
 
 .. _Gmsh: https://gmsh.info/
 .. _pygmsh: https://pypi.org/project/pygmsh/
