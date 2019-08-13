@@ -11,7 +11,7 @@ setup(
     author_email="tokarev28.art@gmail.com",
     packages=find_packages(),
     description="Python frontend for Gmsh scripting language.",
-    long_description=readme,
+    # long_description=readme,
     license="MIT",
     platforms="any",
     install_requires=["numpy >= 1.9"],
