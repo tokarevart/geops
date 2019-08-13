@@ -1,3 +1,6 @@
+import copy
+
+
 class SurfaceBase(object):
     """
     Increments the Line ID every time a new object is created that inherits
@@ -22,3 +25,8 @@ class SurfaceBase(object):
             SurfaceBase._ID += 1
         self.num_edges = num_edges
         return
+
+    def __neg__(self):
+        neg_self = copy.deepcopy(self)
+        neg_self.id = "-" + neg_self.id
+        return neg_self
